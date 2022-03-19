@@ -21,6 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test tests",
     "eject": "react-scripts eject",
+    "cypress:open": "cypress open",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },
   "eslintConfig": {
@@ -42,6 +43,8 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^9.5.2",
+    "cypress-multi-reporters": "^1.4.0",
     "eslint": "^8.11.0",
     "eslint-plugin-react": "^7.29.4"
   }
