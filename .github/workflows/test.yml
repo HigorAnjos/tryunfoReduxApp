@@ -1,17 +1,20 @@
-name: Teste com jest
 on:
-  push:
-    branches:
-      - dev
+  pull_request:
+    types: [opened, synchronize]
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  eslint:
+    runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v2
-    - name: Install modules
-      run: yarn
-    - name: Run tests
-      run: yarn test tests
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1.4.4
+        with:
+          node-version: '12'
+      - name: ESLint
+        uses: betrybe/eslint-linter-action@v2.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
   evaluator_job:
     runs-on: ubuntu-18.04
     name: Evaluator job
